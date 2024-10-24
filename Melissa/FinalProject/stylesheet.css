@@ -20,8 +20,9 @@
 }
 
 .header-logo {
-    height: 70px;
+    height: 66px;
     margin-left: 1rem;
+    margin-top: 2px;
 }
 
 .hamburger {
@@ -62,6 +63,7 @@ main {
 }
 
 .main-div {
+    padding-top: 1rem;
     min-height: calc(100vh - 115px);
     width: 100%;
     display: flex;
@@ -131,11 +133,10 @@ hr {
     margin-left: auto;
     margin-right: auto;
     background-color: var(--forager-orange);
-    
 }
 
 .image-div {
-    border: 2px solid black;
+    border: 2px solid var(--forager-red);
     border-radius: 10px;
     background-color: #D9D9D9;
     width: 300px;
@@ -193,12 +194,153 @@ hr {
 
 /* END NEW ENTRY */
 
-/* MEDIA QUERIES */
+/* START FORAGED */
 
-@media (min-height: 800px) {
-    /* Make the input higher */
+.filter-btn {
+    display: block;
+    border: var(--forager-red) 4px solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
+.filter-div {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    width: 95%;
+    max-width: 350px;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+}
+
+.filter-div>label {
+    grid-column: 1;
+}
+
+.filter-div>input {
+    grid-column: 2;
+    border: var(--forager-orange) 2px solid;
+    border-radius: 10px;
+    width: 190px;
+}
+
+#filter-hr {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem; 
+}
+
+/* .filter-elements {
+    display: none;
+} */
+
+.foraged-div {
+    width: 310px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    background-color: var(--forager-orange);
+}
+
+.foraged-image-div {
+    border: 2px solid var(--forager-red);
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    width: 300px;
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#mushroom-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+#foraged-btn-div {
+    width: fit-content;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#edit-btn {
+    border: 4px solid var(--forager-white);
+    background-color: white;
+}
+
+#delete-btn {
+    border: 4px solid var(--forager-red);
+    color: var(--forager-red);
+}
+
+#foraged-mushrooms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1330px;
+}
+
+/* END FORAGED */
+
+/* START MAP */
+
+#map-div {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* END MAP */
+
+
+/* MEDIA QUERIES */
+
+/* HEIGHT */
+@media (min-width: 550px) and (min-height: 800px) {
+    .new-entry-form {
+        height: 460px;
+        width: 500px;
+    }
+    .image-div {
+        width: 490px;
+        height: 225px;
+    }
+    #file-input {
+        width: 50%;
+    }
+    #new-entry-div {
+        margin-top: 7px;
+        gap: 7px;
+    }
+}
+
+/* WIDTH */
 @media (min-width: 475px) {
     h1 {
         font-size: 2rem;
@@ -209,6 +351,12 @@ hr {
     .body-logo {
         width: 400px;
     }
+    .filter-btn {
+        display: none;
+    }
+    .filter-div {
+        margin-top: 1rem;
+    }
 }
 
 @media (min-width: 768px) {
@@ -217,7 +365,8 @@ hr {
         gap: 0;
     }
     .header-logo {
-        height: 90px;
+        margin-top: 3px;
+        height: 84px;
     }
     nav {
         height: 100%;
@@ -228,11 +377,11 @@ hr {
         align-items: center;
     }
     .nav-btn {
-        width: 170px;
-        height: 60px;
+        width: 155px;
+        height: 50px;
         background-color: var(--forager-red);
         border: 4px solid var(--forager-orange);
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         color: var(--forager-white);
         border-radius: 50px;
     }
@@ -250,11 +399,14 @@ hr {
         height: 60px;
         font-size: 2rem;
     }    
-}
-
-@media (min-width: 1024px) {
-    .nav-btn {
-        width: 170px;
+    .filter-div {
+        font-size: 1.5rem;
+        max-width: 450px;
+        gap: 10px;
     }
-    /* MAKE THE INPUT WIDER */
+    #edit-btn, #delete-btn {
+        width: 130px;
+        height: 40px;
+        font-size: 1rem;
+    }
 }
