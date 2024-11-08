@@ -1,0 +1,69 @@
+@import "variablesmixins";
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(50vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+body {
+    background-color: $secondary-color;
+}
+
+.card {
+    width: 200px;
+    height: fit-content;
+    padding: 10px;
+    // animation: slideInFromRight 1s linear;
+    margin: 5rem auto 0 auto;
+    background-color: $primary-color;
+        &__avatar {
+            display: block;
+            @include center();
+            border-radius: 90px;
+        }
+        &__title {
+            color: $title-color;
+            text-align: center;
+            @include center();
+            @include mar-btm();
+        }
+        &__cv {
+            text-align: center;
+            color: orange;
+            @include center();
+            @include mar-btm();
+            &--pro {
+                font-weight: bold;
+            }
+        }
+        &__btn {
+            display: inline-block;
+            position: relative;
+            width: 180px;
+            left: 10px;
+            background-color: $btn-color;
+            @include hoverMixin($btn-color);
+            padding: 10px;
+        }
+        &__btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 4px;
+            left: 10px;
+            background-color: black;
+            transform-origin: bottom left;
+            transition: transform 1s ease-out;
+          }
+          &__btn:hover::after {
+            transform: scaleX(0.9);
+            transform-origin: bottom left;
+          }
+}
+        

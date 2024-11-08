@@ -1,0 +1,21 @@
+$primary-color: blue;
+$secondary-color: gray;
+$title-color: white;
+$card-color: green;
+$btn-color: orange;
+
+@mixin center {
+    margin: 0 auto 0 auto
+}
+
+@mixin mar-btm {
+    margin-bottom: 1rem;
+}
+
+@mixin hoverMixin ($color) {
+    &:hover {
+        background-color: adjust-color($color, $lightness: -10%);
+        transition: transform 1s;
+        transform: scale(1.1);
+    }
+}
