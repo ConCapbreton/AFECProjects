@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foraged</title>
+    <meta name="description" content="Record, map and analyse all of your mushroom, plants, trees and other foraging discoveries and finds">
     <link href="https://fonts.cdnfonts.com/css/lucida-handwriting-std" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/lucida-handwriting-std');
     </style>
-    <link rel="icon" href="./images/FORAGERBROWSERICON.jpg" type="image/png">
+    <link rel="icon" href="./images/FORAGERBROWSERICON.webp" type="image/webp">
     <link rel="stylesheet" href="./stylesheet.css">
+    <title>Foraged</title>
 </head>
-
 <body>
-
     <header class="header">
-        <img class="header-logo" src="./images/COLOURLOGORED.png" alt="Foragers Logo">
+        <img class="header-logo" src="./images/COLOURLOGORED.webp" alt="Foragers Logo" height="66px" width="66px">
         <div class="hamburger">
             <div class="ham-line"></div>
             <div class="ham-line"></div>
@@ -29,26 +27,21 @@
             <button class="nav-btn">Contact</button>
         </nav>
     </header>
-    
     <main>
         <div class="main-div">
             <h1>Review your finds here</h1>
             <button class="filter-btn">Filters</button>
             <div class="filter-div filter-elements">
                 <label for="name-or-species">Name or Species:</label>
-                <input type="text" name="name-or-species" placeholder="Name or Species">
+                <input type="text" id="name-or-species" name="name-or-species" placeholder="Name or Species">
                 <label for="start-date">Start Date:</label>
-                <input type="date" name="start-date">
+                <input type="date" id="start-date" name="start-date">
                 <label for="end-date">End Date:</label>
-                <input type="date" name="end-date">
+                <input type="date" id="end-date" name="end-date">
             </div>
             <hr id="filter-hr" class="filter-elements">
-
             <div class="foraged-div" style="margin-bottom: 4rem">
-                <div class="foraged-image-div">
-                    <img id="mushroom-photo" src="./images/Mushroom.jpg" alt="Uploaded image">
-                </div>
-                
+                <img id="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300px" height="150px"> 
                 <div id="new-entry-div">
                     <label class="column-one" for="name">Name:</label>
                     <p class="column-two">Cepe de Bordeaux</p>
@@ -70,14 +63,10 @@
                     <button id="delete-btn">Delete</button>
                 </div>
             </div>
-
             <!-- START LIST OF FINDS (TO BE DELETED FOR FINAL FORMATTING) -->
             <div id="foraged-mushrooms">
                 <div class="foraged-div">
-                    <div class="foraged-image-div">
-                        <img id="mushroom-photo" src="./images/Mushroom.jpg" alt="Uploaded image">
-                    </div>
-                    
+                    <img id="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300px" height="150px">
                     <div id="new-entry-div">
                         <label class="column-one" for="name">Name:</label>
                         <p class="column-two">Cepe de Bordeaux</p>
@@ -100,10 +89,7 @@
                     </div>
                 </div>
                 <div class="foraged-div">
-                    <div class="foraged-image-div">
-                        <img id="mushroom-photo" src="./images/Mushroom.jpg" alt="Uploaded image">
-                    </div>
-                    
+                    <img id="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300px" height="150px">
                     <div id="new-entry-div">
                         <label class="column-one" for="name">Name:</label>
                         <p class="column-two">Cepe de Bordeaux</p>
@@ -126,10 +112,7 @@
                     </div>
                 </div>
                 <div class="foraged-div">
-                    <div class="foraged-image-div">
-                        <img id="mushroom-photo" src="./images/Mushroom.jpg" alt="Uploaded image">
-                    </div>
-                    
+                    <img id="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300px" height="150px">
                     <div id="new-entry-div">
                         <label class="column-one" for="name">Name:</label>
                         <p class="column-two">Cepe de Bordeaux</p>
@@ -152,10 +135,7 @@
                     </div>
                 </div>
                 <div class="foraged-div">
-                    <div class="foraged-image-div">
-                        <img id="mushroom-photo" src="./images/Mushroom.jpg" alt="Uploaded image">
-                    </div>
-                    
+                    <img id="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300px" height="150px">
                     <div id="new-entry-div">
                         <label class="column-one" for="name">Name:</label>
                         <p class="column-two">Cepe de Bordeaux</p>
@@ -178,10 +158,7 @@
                     </div>
                 </div>
                 <div class="foraged-div">
-                    <div class="foraged-image-div">
-                        <img id="mushroom-photo" src="./images/Mushroom.jpg" alt="Uploaded image">
-                    </div>
-                    
+                    <img id="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300px" height="150px">
                     <div id="new-entry-div">
                         <label class="column-one" for="name">Name:</label>
                         <p class="column-two">Cepe de Bordeaux</p>
@@ -205,13 +182,10 @@
                 </div>
             </div>
             <!-- START LIST OF FINDS (TO BE DELETED FOR FINAL FORMATTING) -->
-
         </div>
     </main>
-    
     <footer>
         <p>@Copyright 2024</p>
     </footer>
-
 </body>
 </html>

@@ -1,11 +1,14 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 0; 
+    font-family: 'Lucida Handwriting Std', sans-serif;
+}
+
+body {
     --forager-red: #b94d4d;
     --forager-orange: #ffbc6c;
     --forager-white: #e8e7e7;
-    font-family: 'Lucida Handwriting Std', sans-serif;
 }
 
 /* START HEADER / FOOTER */
@@ -20,9 +23,7 @@
 }
 
 .header-logo {
-    height: 66px;
-    margin-left: 1rem;
-    margin-top: 2px;
+    margin: 2px 0 0 1rem;
 }
 
 .hamburger {
@@ -50,6 +51,7 @@ footer {
     height: 45px;
     width: 100%;
     background-color: var(--forager-red);
+    color: white;
     display: grid;
     place-items: center;
 }
@@ -80,8 +82,7 @@ h1 {
 
 .button-div {
     width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
     padding-top: 1rem;
     display: flex;
     flex-direction: row;
@@ -108,17 +109,13 @@ button {
     display: block;
     width: 290px;
     padding-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
 }
 
 hr {
     width: 50%;
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    margin: 1rem auto 0.5rem auto;
 }
 
 /* END HOME PAGE */
@@ -130,8 +127,7 @@ hr {
     height: 360px;
     border: 2px solid black;
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
     background-color: var(--forager-orange);
 }
 
@@ -140,9 +136,7 @@ hr {
     border-radius: 10px;
     background-color: #D9D9D9;
     width: 300px;
-    margin-top: 3px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 3px auto 0 auto;
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -150,28 +144,25 @@ hr {
     justify-content: space-evenly;
 }
 
-#new-entry-photo-icon {
+#svg-pic {
     width: 50px;
+    height: 50px;
 }
 
 #file-input {
     border: 1px solid black;
     width: 90%;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
     padding: 5px;
     border-radius: 10px;
 }
 
 #new-entry-div {
     width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 5px auto 0 auto;
     display: grid;
     grid-template-columns: 1fr, 1fr;
     gap: 3px;
-    margin-top: 5px;
 }
 
 .column-one {
@@ -186,10 +177,7 @@ hr {
 
 .save-btn {
     border: 4px solid var(--forager-orange);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem auto 0.5rem auto; 
 }
 
 /* END NEW ENTRY */
@@ -199,10 +187,7 @@ hr {
 .filter-btn {
     display: block;
     border: var(--forager-red) 4px solid;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem auto 1rem auto; 
 }
 
 .filter-div {
@@ -211,9 +196,7 @@ hr {
     width: 95%;
     max-width: 350px;
     gap: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 0.5rem;
+    margin: 0 auto 0.5rem auto;
 }
 
 .filter-div>label {
@@ -229,53 +212,28 @@ hr {
 
 #filter-hr {
     width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem; 
+    margin: 0.5rem auto 1rem auto;
 }
-
-/* .filter-elements {
-    display: none;
-} */
 
 .foraged-div {
     width: 310px;
     border: 2px solid black;
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
     background-color: var(--forager-orange);
 }
 
-.foraged-image-div {
-    border: 2px solid var(--forager-red);
+#mushroom-photo {
+    display: block;
     border-radius: 10px;
     background-color: #D9D9D9;
-    width: 300px;
-    margin-top: 3px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-#mushroom-photo {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
+    margin: 3px auto 0 auto;
+    object-fit: cover;
 }
 
 #foraged-btn-div {
     width: fit-content;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-right: auto;
-    margin-left: auto;
+    margin: 0.5rem auto 0.5rem auto;
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -296,8 +254,7 @@ hr {
     flex-wrap: wrap;
     gap: 2rem;
     width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
     max-width: 1330px;
 }
 
@@ -307,17 +264,65 @@ hr {
 
 #map-div {
     width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 0 auto;
 }
 
 #map-img {
     width: 100%;
+    height: 250px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
-/* END MAP */
+.map-filter-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 95%;
+    margin: 0 auto 0 auto;
+    gap: 5px;
+    font-size: 0.9rem;;
+}
 
+#map-name {
+    text-align: right;
+    padding-right: 2.5%;
+}
+
+#map-name-input {
+    margin-left: 0;
+    max-width: 190px;    
+}
+
+.start-end {
+    text-align: center;
+}
+
+.map-filter-div>input, #map-name-species>input {
+    border: var(--forager-orange) 2px solid;
+    border-radius: 10px;
+    width: 95%;
+    max-width: 220px;
+    margin: 0 auto 0 auto;
+}
+
+.column-one {
+    grid-column: 1;
+}
+.column-two {
+    grid-column: 2;
+}
+.label {
+    grid-row: 2;
+}
+
+.show-btn {
+    border: 4px solid var(--forager-red);
+    display: block;
+    font-size: 0.9rem;
+    margin: 1rem auto 0.5rem auto;
+}
+
+/* END MAP */
 
 /* MEDIA QUERIES */
 
@@ -357,6 +362,9 @@ hr {
     .filter-div {
         margin-top: 1rem;
     }
+    #map-img {
+        height: 350px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -367,6 +375,7 @@ hr {
     .header-logo {
         margin-top: 3px;
         height: 84px;
+        width: 84px;
     }
     nav {
         height: 100%;
@@ -408,5 +417,20 @@ hr {
         width: 130px;
         height: 40px;
         font-size: 1rem;
+    }
+    #map-img {
+        height: 450px;
+    }
+    .map-filter-div, .map-filter-div>input, .show-btn {
+        font-size: 1.5rem;
+    }
+    #map-name-input {
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .map-filter-div {
+        margin: 1rem auto 1 rem auto;
     }
 }

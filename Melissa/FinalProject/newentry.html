@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Entry</title>
+    <meta name="description" content="Record, map and analyse all of your mushroom, plants, trees and other foraging discoveries and finds">
     <link href="https://fonts.cdnfonts.com/css/lucida-handwriting-std" rel="stylesheet">
     <style>
         @import url('https://fonts.cdnfonts.com/css/lucida-handwriting-std');
     </style>
-    <link rel="icon" href="./images/FORAGERBROWSERICON.jpg" type="image/png">
+    <link rel="icon" href="./images/FORAGERBROWSERICON.webp" type="image/webp">
     <link rel="stylesheet" href="./stylesheet.css">
+    <title>New Entry</title>
 </head>
-
 <body>
-
     <header class="header">
-        <img class="header-logo" src="./images/COLOURLOGORED.png" alt="Foragers Logo">
+        <img class="header-logo" src="./images/COLOURLOGORED.webp" alt="Foragers Logo" height="66px" width="66px">
         <div class="hamburger">
             <div class="ham-line"></div>
             <div class="ham-line"></div>
@@ -29,46 +27,44 @@
             <button class="nav-btn">Contact</button>
         </nav>
     </header>
-    
     <main>
         <div class="main-div">
             <h1>New Entry</h1>
             <form class="new-entry-form">
                 <div class="image-div">
-                    <img id="new-entry-photo-icon" src="./images/PhotoIcon.jpg" alt="Upload photo image">
+                    <svg id="svg-pic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
+                        <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                    </svg>
                     <input id="file-input" type="file" name="file-input" accept=".jpg, .jpeg, .png">
                     <label id="new-entry-icon-text" for="file-input">Click to upload a photo</label>
                 </div>
-                
                 <div id="new-entry-div">
                     <label class="column-one" for="name">Name:</label>
-                    <input class="column-two" type="text" name="name" placeholder="Name" required>
+                    <input class="column-two" type="text" id="name" name="name" placeholder="Name" required>
                     <label for="species">Species:</label>
-                    <select class="column-two">
+                    <select id="species" class="column-two">
                         <option>Scientific name</option>
                         <option>Boletus edulis Bull</option>
                         <option>Cantharellus cibarius</option>
                         <option>Hydnum repandum</option>
                     </select>
                     <label class="column-one" for="latitude">Latitude:</label>
-                    <input class="column-two" type="number" name="latitude" placeholder="Latitude">
+                    <input class="column-two" type="number" id="latitude" name="latitude" placeholder="Latitude">
                     <label class="column-one" for="Longitude">Longitude:</label>
-                    <input class="column-two" type="number" name="Longitude" placeholder="Longitude">
+                    <input class="column-two" type="number" id="Longitude" name="Longitude" placeholder="Longitude">
                     <label class="column-one" for="date">Date:</label>
-                    <input class="column-two" type="date" name="date" placeholder="date" required>
+                    <input class="column-two" type="date" id="date" name="date" placeholder="date" required>
                     <label class="column-one" for="time">Time:</label>
-                    <input class="column-two" type="time" name="time" placeholder="Time">
+                    <input class="column-two" type="time" id="time" name="time" placeholder="Time">
                     <label class="column-one" for="text-area">Comments:</label>
-                    <textarea class="column-two" name="text-area"></textarea>
+                    <textarea class="column-two" id="text-area" name="text-area"></textarea>
                 </div>
             </form>
             <button class="save-btn" type="submit">Save</button>
         </div>
     </main>
-    
     <footer>
         <p>@Copyright 2024</p>
     </footer>
-
 </body>
 </html>
