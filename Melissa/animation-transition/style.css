@@ -15,6 +15,7 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   padding: 10px;
+  animation: slideInFromRight 1s linear;
   margin: 5rem auto 0 auto;
   background-color: blue;
 }
@@ -43,11 +44,11 @@ body {
   position: relative;
   width: 180px;
   left: 10px;
-  background-color: orange;
+  background-color: white;
   padding: 10px;
 }
 .card__btn:hover {
-  background-color: #cc8400;
+  background-color: #e6e6e6;
   transition: transform 1s;
   transform: scale(1.1);
 }

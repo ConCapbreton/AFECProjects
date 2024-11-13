@@ -45,25 +45,25 @@ body {
             position: relative;
             width: 180px;
             left: 10px;
-            background-color: $btn-color;
-            @include hoverMixin($btn-color);
+            background-color: $title-color;
+            @include hoverMixin($title-color);
             padding: 10px;
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                transform: scaleX(0);
+                height: 2px;
+                bottom: 4px;
+                left: 10px;
+                background-color: black;
+                transform-origin: bottom left;
+                transition: transform 1s ease-out;
+            }
+            &:hover::after {
+                transform: scaleX(0.9);
+                transform-origin: bottom left;
+            }
         }
-        &__btn::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 4px;
-            left: 10px;
-            background-color: black;
-            transform-origin: bottom left;
-            transition: transform 1s ease-out;
-          }
-          &__btn:hover::after {
-            transform: scaleX(0.9);
-            transform-origin: bottom left;
-          }
 }
         
