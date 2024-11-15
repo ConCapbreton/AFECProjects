@@ -14,7 +14,7 @@ const griffonChance = () => {
     console.log(`The Sorciere has thrown a ${nextMove}`)
     if (nextMove <= 3) {
         sorcierePosition -= 2
-        console.log(`The Sorciere rolled 3 or less and moves down the board 2 places to ${sorcierePosition}. Not good news for the Sorciere! \n The Griffon stays at position ${griffonPosition} and the Sorciere takes their turn`)
+        console.log(`The Sorciere rolled 3 or less and moves down the board 2 places to ${sorcierePosition}. Not good news for the Sorciere! \n The Griffon stays at position ${griffonPosition} and the Sorciere takes their turn\n`)
         sorciereThrow() 
     } else {
         console.log(`The Sorciere rolled 4 or more and gets to choose a chance card!`)
@@ -27,12 +27,12 @@ const sorciereChance = () => {
     if (card <= 3) {
         sorcierePosition = griffonPosition
         griffonPosition+=3
-        console.log(`The Sorciere drew the Death card! \nThe Sorciere remains at the Griffon's position at ${sorcierePosition} \n The Sorciere casts a spell and the Griffon moves back up the board 3 places to position ${griffonPosition}. Not good news for the Griffon!\n The Griffon takes their turn.` )
+        console.log(`The Sorciere drew the Death card! \nThe Sorciere remains at the Griffon's position at ${sorcierePosition} \n The Sorciere casts a spell and the Griffon moves back up the board 3 places to position ${griffonPosition}. Not good news for the Griffon!\n The Griffon takes their turn.\n` )
         griffonThrow()
     } else {
         sorcierePosition = (griffonPosition + 1)
         passed = true
-        console.log(`The Sorciere drew a Gold card and runs up the board past the Griffon by 1 place! \n The Sorciere is at position ${sorcierePosition} and the Griffon remains at position ${griffonPosition}.\n The Griffon takes their turn.`)
+        console.log(`The Sorciere drew a Gold card and runs up the board past the Griffon by 1 place! \n The Sorciere is at position ${sorcierePosition} and the Griffon remains at position ${griffonPosition}.\n The Griffon takes their turn.\n`)
         // Potentially add an if here in case the game is won (unlikely as encounters happen in the middle of the board)
         griffonThrow()
     }
@@ -48,7 +48,7 @@ const sorciereThrow = async () => {
         console.log(`The Sorciere threw a ${nextMove} and made it past position 50! They grab the Grimoire and win the game!\nBetter luck next time Griffon!`)
     } else {
         console.log(`The Sorciere threw a ${nextMove} and moves up the board to position ${sorcierePosition}`)
-        console.log(`${passed ? "The players have passed each other, it's a race to the end!" : "The players must still pass each other, it's anyone's game!"}`)
+        console.log(`${passed ? "The players have passed each other, it's a race to the end!\n" : "The players must still pass each other, it's anyone's game!\n"}`)
         griffonThrow()
     }     
 }
@@ -70,10 +70,10 @@ const griffonThrow = () => {
 const startGame = () => {
     let firstPlayer = diceThrow()
     if (firstPlayer <= 3) {
-        console.log("The Sorciere throws first")
+        console.log("The Sorciere throws first!\n")
         sorciereThrow()
     } else {
-        console.log("The Griffon throws first")
+        console.log("The Griffon throws first!\n")
         griffonThrow()
     }
 } 
