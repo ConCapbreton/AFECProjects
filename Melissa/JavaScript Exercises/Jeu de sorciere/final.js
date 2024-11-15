@@ -45,7 +45,7 @@ const sorciereThrow = async () => {
         console.log(`The Sorciere threw a ${nextMove} and has landed on the Griffon at position ${griffonPosition}! The Sorciere must draw a chance card!`)
         sorciereChance()
     } else if (sorcierePosition > 50) {
-        console.log(`The Sorciere threw a ${nextMove} and made it past position 50! They grab the Grimoire and win the game!\nBetter luck next time Griffon!`)
+        console.log(`\nThe Sorciere threw a ${nextMove} and made it past position 50! They grab the Grimoire and win the game!\nBetter luck next time Griffon!`)
     } else {
         console.log(`The Sorciere threw a ${nextMove} and moves up the board to position ${sorcierePosition}`)
         console.log(`${passed ? "The players have passed each other, it's a race to the end!\n" : "The players must still pass each other, it's anyone's game!\n"}`)
@@ -60,7 +60,7 @@ const griffonThrow = () => {
         console.log(`The Griffon threw a ${nextMove} and has landed on the Sorciere at position ${sorcierePosition}! The Sorciere now rolls the dice to see what happens next!`)
         griffonChance()
     } else if (griffonPosition < 1) {
-        console.log(`The Griffon threw a ${nextMove} and made it past position 0! They win the game!\nBetter luck next time Sorciere!`)
+        console.log(`\nThe Griffon threw a ${nextMove} and made it past position 0! They win the game!\nBetter luck next time Sorciere!`)
     } else {
         console.log(`The Griffon threw a ${nextMove}, and moves down the board to position ${griffonPosition}`)
         sorciereThrow()
