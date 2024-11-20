@@ -1,0 +1,185 @@
+h1, h2 {
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    margin: 3rem auto 2rem 0;
+}
+
+hr {
+    width: 50%;
+    margin: 3rem auto 0 auto;
+}
+
+#to-change {
+    width: 50%;
+    height: 100px;
+    margin: 1rem auto 1rem auto;
+    line-height: 100px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.btn__div {
+    width: fit-content;
+    margin: 0 auto 0 auto; 
+}
+
+.btn__div--palindrome {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    width: 200px;
+    height: 50px;
+}
+
+.btn__reset {
+    color: white;
+    background-color: black;
+}
+
+.btn__palindrom {
+    width: 500px;
+}
+
+.removal, .removal-inner {
+    width: 100%;
+    text-align: center;
+}
+
+.removal-other {
+    font-size: 2rem;
+    background-color: pink;
+}
+
+.removal-outer {
+    font-size: 2.5rem;
+    background-color: yellow;
+}
+
+form>label {
+    width: fit-content;
+    margin: 0 auto 1rem auto;
+}
+
+form>input {
+    height: 2rem;
+    width: 500px;
+    margin-bottom: 1rem;
+}
+
+.input-to-remove {
+    width: 100%;
+    text-align: center;
+}
+
+#blanket-form {
+    width: 60%;
+    margin: 0 auto 0 auto;
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+}
+
+.column-one {
+    grid-column: 1;
+    line-height: 40px;
+}
+.column-two {
+    grid-column: 2;
+}
+.column-both {
+    margin: 2rem 0 2rem 0;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+
+.column-both>label {
+    grid-column: 2;
+    
+}
+.column-both>input {
+    grid-column: 1;
+} 
+
+label[for="specs"] {
+    grid-column: 1/3;
+}
+
+input[id="specs"] {
+    grid-column: 2;
+}
+
+#form-submit {
+    width: 200px;
+    grid-column: 1/3;
+    display: block;
+    margin: 0 auto 0 auto;
+    background-color: pink;
+}
+
+#remove-blanket {
+    width: 200px;
+    grid-column: 1/3;
+    display: block;
+    margin: 1rem auto 1rem auto;
+}
+
+.blanket {
+    width: 100%;
+    text-align: center;
+}
+
+#background {
+    height: 700px;
+    width: 690px;
+    background-color: black;
+    margin: 0 auto 0 auto;
+}
+
+#top, #middle, #bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    background-color: transparent;
+}
+
+#top>div, #middle>div, #bottom>div {
+    height: 200px;
+    width: 200px;
+    background: white;
+}
+
+#top>div {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#middle>div {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#bottom>div {
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#ttt-reset {
+    display: block;
+    margin: 0 auto 2rem auto;
+}
+
+.square {
+    display: grid;
+    place-items: center;
+    font-size: 5rem;
+}
+
+

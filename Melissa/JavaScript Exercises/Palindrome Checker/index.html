@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>SO8-J2 Exercise JS</title>
+</head>
+<body>
+    <h1>SO8-J2 Exercise JS</h1>
+    <section>
+        <h2>1. Cibler un element HTML</h2>
+        <p id="to-change">Color changer</p>
+        <div class="btn__div">
+            <button id="btn-change" class="btn">Change Color</button>
+            <button id="btn-reset" class="btn btn__reset">Reset</button>
+        </div>
+        <hr>
+    </section>
+    <section>
+        <h2 id="custom-htwo">2. Creez dynamiquement des elements HTML</h2>
+        <div class="btn__div">
+            <button id="btn-create" class="btn">Click me for more info</button>
+            <button id="remove-button" class="btn">Remove text</button>
+            <button id="remove-title-button" class="btn">Remove all titles</button>
+        </div>
+        <div id="parent-div"></div>
+        <hr>
+    </section>
+    <section>
+        <h2>3. Creez dynamiquement des elements HTML (innerHTML)</h2>
+        <div class="btn__div">
+            <button id="btn-create-inner" class="btn">Click me for more info</button>
+            <button id="remove-button-inner" class="btn">Remove text</button>
+        </div>
+        <div id="parent-div-inner"></div>
+        <hr>
+    </section>
+    <section>
+        <h2>4. Palindrome Checker</h2>
+        <form class="btn__div btn__div--palindrome">
+            <label for="input-palindrome">Enter your palindrome here:</label>
+            <input id="input-palindrome" type="text" placeholder="Click to type" required>
+            <button id="btn-palindrome" class="btn btn__palindrom">Click to check if your input is a palindrome</button>
+            <button id="btn-palindrome-clear" class="btn btn__palindrom" style="margin-top: 1rem;">Click to clear the board</button>
+        </form>
+        <div id="parent-div-palindrome"></div>
+        <hr>
+    </section>
+    <section>
+        <h2>5. Formulaire nouveau produit: une plaid!</h2>
+        <form id="blanket-form" type="submit">
+            
+            <!-- NAME TEXT CHARACTER LIMIT 20-->
+            <label class="column-one" for="name">Blanket name:</label>
+            <input class="column-two" type="text" id="name" name="name" maxlength="20" required>
+             
+            <!-- DESC TEXT AREA CHARACTER LIMIT 250 -->
+            <label class="column-one" for="description">Blanket description:</label>
+            <input class="column-two" type="textarea" id="description" name="description" maxlength="250" required>
+             
+            <!-- THREAD NUMBER (min 100 max 1000 and step 100) -->
+            <label class="column-one" for="thread-count">Thread count:</label>
+            <input class="column-two" type="number" id="thread-count" name="thread-count" min="100" max="1000" step="100" required>
+
+            <!-- GIFT RADIO -->
+            <label class="column-one" for="personal">Is the blanket for you:</label>
+            <input class="column-two" type="radio" id="personal" name="gift" value="This blanket is a gift for me!" required checked>
+            <label class="column-one" for="other">Or for someone else:</label>
+            <input class="column-two" type="radio" id="other" name="gift" value="This blanket is a gift for someone else!">
+
+            <!-- SELECT FOR COLOR -->
+            <label class="column-one" for="color">Color:</label>
+            <select class="column-two" name="color" id="color" required>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+            </select>
+
+            <!-- CHECKBOX FOR ARTWORK -->
+            <fieldset class="column-both">
+            <legend>Choose the artwork for the blanket:</legend>
+                <input class="col-one" type="checkbox" id="dog" name="artwork" value="dog " required>
+                <label class="col-two" for="dog">Dog</label>
+                <input class="col-one" type="checkbox" id="cat" name="artwork" value="cat ">
+                <label class="col-two" for="cat">Cat</label>
+                <input class="col-one" type="checkbox" id="dragon" name="artwork" value="dragon ">
+                <label class="col-two" for="dragon">Dragon</label>
+                <input class="col-one" type="checkbox" id="chicken" name="artwork" value="chicken ">
+                <label class="col-two" for="chicken">Chicken</label>
+            </fieldset>
+
+            <!-- FILE CHOICE -->
+            <label class="column-one" for="specs">Upload the technical specifications of your blanket (pdf only):</label>
+            <input class="column-two" type="file" id="specs" accept=".pdf" name="specs" required> 
+              
+            <button id="form-submit" type="submit">Submit</button>
+            <button id="remove-blanket">Reset blanket form</button>
+        </form>
+        <div id="parent-div-form"></div>
+        <hr>
+    </section>
+    <section>
+        <h2>6. Tik Tak Toe</h2>
+        <div id="winner-div"></div>
+        <button id="ttt-reset">Reset Tik Tak Toe</button>
+        <div id="background">
+            <div id="top">
+                <div class="square" id="top-left"></div>
+                <div class="square" id="top-middle"></div>
+                <div class="square" id="top-right"></div>
+            </div>
+            <div id="middle">
+                <div class="square" id="middle-left"></div>
+                <div class="square" id="middle-middle"></div>
+                <div class="square" id="middle-right"></div>
+            </div>
+            <div id="bottom">
+                <div class="square" id="bottom-left"></div>
+                <div class="square" id="bottom-middle"></div>
+                <div class="square" id="bottom-right"></div>
+            </div>
+        </div>
+        <hr>
+    </section>
+    </body>
+<script src="./index.js"></script>
+</html>
