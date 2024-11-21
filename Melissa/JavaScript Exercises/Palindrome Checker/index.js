@@ -246,34 +246,31 @@ removeBlanket.addEventListener("click", (event) => {
 
 let count = 0
 let mark
+let gameEnd = false
 let fullSquares = document.querySelectorAll(".square")
 
-const tTTreset = document.getElementById("ttt-reset").addEventListener("click", (event) => {
+document.getElementById("ttt-reset").addEventListener("click", (event) => {
     event.preventDefault()
     fullSquares.forEach(element => {
         element.innerText = ''
         element.style.color = ''
     })
     count = 0 
+    gameEnd = false
     const winMsg = document.getElementById("winner-msg")
     if (winMsg) {winMsg.remove()}
 })
 
-const tikTakToeDiv = document.getElementById("background")
-
-tikTakToeDiv.addEventListener("click", (event) => {
+document.getElementById("background").addEventListener("click", (event) => {
     event.preventDefault()
-    
+
     if (event.target.className !== "square") {return} 
-    if (count >= 99999) {return}
+    if (gameEnd === true) {return}
 
     count%2 === 0 ? mark = "X" : mark = "O"
-    
-    if (event.target.innerText === '') {
-        event.target.innerText = mark 
-    }
+    if (event.target.innerText === '') {event.target.innerText = mark}
 
-    //CHECK TO SEE IF GAME HAS FINISHED
+    //HAS SOMEONE WON?
     const topLeft = document.getElementById("top-left").innerText
     const topMiddle = document.getElementById("top-middle").innerText
     const topRight = document.getElementById("top-right").innerText
@@ -294,7 +291,7 @@ tikTakToeDiv.addEventListener("click", (event) => {
         topLeft === mark && middleMiddle === mark && bottomRight === mark ||
         topRight === mark && middleMiddle === mark && bottomLeft === mark
     ) {
-        count = 99999
+        gameEnd = true
 
         fullSquares.forEach(element => {
             element.innerText === mark ? element.style.color = "red" : element.style.color = ""
