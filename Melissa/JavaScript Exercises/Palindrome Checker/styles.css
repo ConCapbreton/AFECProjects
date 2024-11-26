@@ -128,11 +128,6 @@ input[id="specs"] {
     margin: 1rem auto 1rem auto;
 }
 
-.blanket {
-    width: 100%;
-    text-align: center;
-}
-
 #background {
     height: 700px;
     width: 690px;
@@ -182,4 +177,29 @@ input[id="specs"] {
     font-size: 5rem;
 }
 
+#to-do-container-div {
+    font-size: 1.5rem;
+    width: 500px;
+    margin: 0 auto 0 auto;
+}
+
+#add-btn, #search {
+    display: block;
+    margin: 1rem auto 0 auto;
+}
+
+.all-divs {
+    width: 500px;
+}
+
+.all-divs>h4, .input-label-div {
+    width: fit-content;
+    margin: 0 auto 0 auto;
+}
+
+#form-table {
+    width: 95%;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
 

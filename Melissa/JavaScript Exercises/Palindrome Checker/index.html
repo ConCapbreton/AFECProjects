@@ -53,7 +53,7 @@
             
             <!-- NAME TEXT CHARACTER LIMIT 20-->
             <label class="column-one" for="name">Blanket name:</label>
-            <input class="column-two" type="text" id="name" name="name" maxlength="20" required>
+            <input class="column-two" type="text" id="name" name="name" maxlength="20">
              
             <!-- DESC TEXT AREA CHARACTER LIMIT 250 -->
             <label class="column-one" for="description">Blanket description:</label>
@@ -80,9 +80,9 @@
             </select>
 
             <!-- CHECKBOX FOR ARTWORK -->
-            <fieldset class="column-both">
+            <fieldset class="column-both" required>
             <legend>Choose the artwork for the blanket:</legend>
-                <input class="col-one" type="checkbox" id="dog" name="artwork" value="dog " required>
+                <input class="col-one" type="checkbox" id="dog" name="artwork" value="dog ">
                 <label class="col-two" for="dog">Dog</label>
                 <input class="col-one" type="checkbox" id="cat" name="artwork" value="cat ">
                 <label class="col-two" for="cat">Cat</label>
@@ -99,7 +99,23 @@
             <button id="form-submit" type="submit">Submit</button>
             <button id="remove-blanket">Reset blanket form</button>
         </form>
-        <div id="parent-div-form"></div>
+        <table id="form-table">
+            <caption>Table of blankets:</caption>
+            <thead>
+                <th scope="col" id="form-col-one">Blanket name</th>
+                <th scope="col" id="form-col-two">Blanket description</th>
+                <th scope="col" id="form-col-three">Thread count</th>
+                <th scope="col" id="form-col-four">Gift</th>
+                <th scope="col" id="form-col-five">Color</th>
+                <th scope="col" id="form-col-six">Artwork</th>
+                <th scope="col" id="form-col-seven">Blanket specs</th>
+            </thead>
+            <tbody id="parent-div-form">
+
+            </tbody>
+            
+        
+        </table>
         <hr>
     </section>
     <section>
@@ -123,6 +139,34 @@
                 <div class="square" id="bottom-right"></div>
             </div>
         </div>
+        <hr>
+    </section>
+    <section>
+        <h2 id="">7. To do</h2>
+        <div id="to-do-container-div">
+            <!-- Add -->
+            <label for="add">Add a "to do" to your list.</label>
+            <input id="add" type="text" placeholder="Add a new to do here!">
+            <br>
+            <button id="add-btn">Click to add your to do!</button>
+            <br>
+            <!-- Search -->
+            <label for="search">Type to search your task lists</label>
+            <br>
+            <input id="search" type="text" placeholder="Search a task here" oninput="searchFunction(event)">
+            <br>
+            <input id="incomplete-filter" type="checkbox">
+            <label for="incomplete-filter">Click to see incomplete tasks</label>
+            <br>
+            <input id="complete filter" type="checkbox">
+            <label for="complete-filter">Click to see complete tasks</label>
+            <br>
+            <h2>Task List</h2>
+            <div id="tasks">
+
+            </div>
+        </div>
+        <div id="parent-div"></div>
         <hr>
     </section>
     </body>

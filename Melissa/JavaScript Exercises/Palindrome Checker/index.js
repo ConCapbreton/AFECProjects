@@ -166,39 +166,47 @@ const submitForm = document.getElementById('blanket-form')
 
 submitForm.addEventListener("submit", (event) => {
     event.preventDefault()
+    let printForm = true
+
 
     //Name check
     let blanketName = document.querySelector('input[name="name"]').value
     if (blanketName.length === 0 || blanketName.length > 20) {
+        printForm = false
         alert('Blanket name is required and should be less than 20 characters')
     }
     //Description check
     let blanketDescription = document.querySelector('input[name="description"]').value
     if (blanketDescription.length === 0 || blanketDescription.length > 250) {
+        printForm = false
         alert('Blanket descrpition is required and should be less than 250 characters')
     } 
     //Thread count check
     let blanketThread = document.querySelector('input[name="thread-count"]').value
     if (blanketThread < 100 || blanketThread > 1000 || (blanketThread % 100) !== 0) {
+        printForm = false
         alert('Thread count is required and should between 100 and 1000 and divisible by 100')
     } 
 
     //Gift check
     let gift = document.querySelector('input[name="gift"]:checked')
-    console.log(gift.value)
+    
     if (gift == null) {
+        printForm = false
         alert("Please check the box if the blanket is for yourself or a gift.")
     }
 
     //Color check
     let color = document.querySelector('select[name="color"]')
     if (color == null) {
+        printForm = false
         alert('Please select a color')
     }
     
     //Artwork check
     let artwork = document.querySelectorAll('input[name="artwork"]:checked')
     if (artwork.length === 0) {
+        printForm = false
         alert("Please choose the artwork of your blanket.")
     }
 
@@ -208,30 +216,47 @@ submitForm.addEventListener("submit", (event) => {
     let fileType = fileName.slice(-4)
 
     if (file == null) {
-       alert('Please upload a pdf file with the blanket specks')
+        printForm = false
+        alert('Please upload a pdf file with the blanket specks')
     } 
     if (fileType !== '.pdf') {
+        printForm = false
         alert('Please upload only pdf files')
     }
 
-    let secondArtworkArray = []
-    artwork.forEach(element => secondArtworkArray.push(element.value))
-    let artworkString = secondArtworkArray.join('and a ')
-    
-    const formParent = document.getElementById("parent-div-form")
-    let blanketSummary = document.createElement('div')
-    blanketSummary.setAttribute("class", "blanket")
-    blanketSummary.innerHTML = `
-        <p>Blanket name: ${blanketName}</p>
-        <p>Blanket description: ${blanketDescription}</p>
-        <p>Thread count: ${blanketThread}</p>
-        <p>${gift.value}</p>
-        <p>This blanket is ${color.value}</p>
-        <p>Your blanket will be decorated with a ${artworkString}</p>
-        <p>You can find the specs for the blanket in file: ${fileName}</p>
-        <br>
-    `
-    formParent.appendChild(blanketSummary)
+    if (printForm) {
+
+        let secondArtworkArray = []
+        artwork.forEach(element => secondArtworkArray.push(element.value))
+        let artworkString = secondArtworkArray.join('and a ')
+        
+        const formParent = document.getElementById("parent-div-form")
+       
+        formParent.innerHTML += `
+            <tc class="blanket">
+                <td class="blanket">${blanketName}</td>
+            </tc>
+            <tc class="blanket">
+                <td class="blanket">${blanketDescription}</td>
+            </tc>
+            <tc class="blanket">
+                <td class="blanket">${blanketThread}</td>
+            </tc>
+            <tc class="blanket">
+                <td class="blanket">${gift.value}</td>
+            </tc>
+            <tc class="blanket">
+                <td class="blanket">${color.value}</td>
+            </tc>
+            <tc class="blanket">
+                <td class="blanket">${artworkString}</td>
+            </tc>
+            <tc class="blanket">
+                <td class="blanket">${fileName}</td>
+            </tc>
+        `
+        formParent.appendChild(blanketSummary)
+    }
 })
 
 const removeBlanket = document.getElementById("remove-blanket")
@@ -308,7 +333,116 @@ document.getElementById("background").addEventListener("click", (event) => {
     count++
 })
 
+//7. TODO 
+
+// maybe enhance using local storage for the toDos...
+
+let toDoCount = 1 
+const toDoList = document.getElementById('tasks')
+let toDo = document.getElementById('add')
+const toDoArray = []
 
 
+//display todos
+const displayToDo = (array) => {
+    array.forEach(element => {
+        let contDiv = document.createElement('div')
+        contDiv.id = `${element.id}div`
+        contDiv.className = "all-divs"
+        contDiv.innerHTML = `
+            <h4>To Do: ${element.id}</h4>
+            <div class="input-label-div">
+                <input class="todo-checkbox" type="checkbox" id="${element.id}checkbox" onclick="checkboxListener(event)"/>
+                <label class="toDoValue" for="${element.id}label">${element.desc}</label>
+                <br>  
+                <button class="toDoDelete" value="${element.id}" onclick="deleteTodo(event)">Delete to do ${element.id}</button>
+            </div>
+            
+        `
+        toDoList.appendChild(contDiv)
+    })
+}
 
+// clear display
+const clearDisplay = () => {
+    let allDivs = document.querySelectorAll(".all-divs")
+    if (allDivs.length > 0) {allDivs.forEach(element => {element.remove()})}
+}
+
+//Add a to do
+document.getElementById('add-btn').addEventListener('click', (event) => {
+    event.preventDefault()
+
+    clearDisplay()
+    
+    class toDoObject {
+        constructor(desc, id, checked) {
+            this.desc = desc;
+            this.id = id;
+            this.checked = checked;
+        }
+    }
+
+    let addToDo = new toDoObject(toDo.value, toDoCount, false)
+
+    toDoArray.push(addToDo)
+    displayToDo(toDoArray)
+    toDoCount++
+    toDo.value = ''
+
+})
+
+//delete a todo
+const deleteTodo = (event) => {
+    event.preventDefault()
+    let getBtnId = event.target.value
+    let divToRemove = document.getElementById(`${getBtnId}div`)
+    divToRemove.remove()
+    let indexOfToDo = toDoArray.findIndex(element => (element.id === getBtnId))
+    toDoArray.splice(indexOfToDo)
+}
+
+//Search
+const searchElement = document.getElementById("search")
+
+const searchFunction = (event) => {
+    event.preventDefault()
+
+    if (searchElement.value === '') {
+        clearDisplay()
+        displayToDo(toDoArray)
+        return
+    }
+
+    clearDisplay()
+
+    let searchArray = []
+    toDoArray.filter(element => {
+        let elementDesc = element.desc.toLowerCase()
+        let searchValue = searchElement.value.toLowerCase()   
+        if (elementDesc.includes(searchValue)) {searchArray.push(element)}
+    })
+
+    displayToDo(searchArray)
+}
+
+//checkbox
+const checkboxListener = (event) => {
+    event.preventDefault()
+    let targetIdCheckbox = event.target.id
+    let targetId = targetIdCheckbox.slice(0, (targetIdCheckbox.length - 8))
+    let indexOfToDo = toDoArray.findIndex(element => {
+        console.log(element.id)
+        element.id === targetId
+    })
+    console.log(indexOfToDo)
+    console.log(toDoArray[0])
+    // toDoArray[indexOfToDo].checked === false ? toDoArray[indexOfToDo].checked = true : toDoArray[indexOfToDo].checked = false
+    // let toDoLabel = document.getElementById(`${targetId}label`)
+    // toDoLabel.style.color = "red"
+    // toDoLabel.style.textDecorationLineThrough = "line-through";
+}
+
+//idcheckbox true
+//idlabel red and crossed out
 
