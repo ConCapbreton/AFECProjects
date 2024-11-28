@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./poke.css">
+    <script src="./poke.js" defer></script>
+    <title>Pokedex! Gotta Catch 'em all!</title>
+</head>
+<body>
+    <header>
+        <h1>Pokedex! Gotta Catch 'em all!</h1>
+        <button id="load-btn">Click to load some pokemon!</button>
+        <p id="error-p"></p>
+        <nav id="poke-nav">    
+            <h2>Navigation</h2>
+            <div id="inner-nav">
+                <div id="favorite-div">
+                    <button id="all-favorites-btn">See your favorite Pokemon</button>
+                    <p id="favorites-warning"></p>
+                </div>
+                <div id="search-div">      
+                    <label for="pokemon-search">Pokemon search: </label>
+                    <p id="error-search"></p>
+                    <input type="text" id="pokemon-search" placeholder="Enter the exact name of your pokemon before you click">
+                    <button id="pokesearch-btn">Search your pokemon</button>
+                </div>
+                <div id="alpha-div">
+                    <button id="alpha-btn">Alphabetise your Pokemon</button>
+                    <p id="alpha-warning"></p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2 id="display-title">Pokemon Display</h2>
+            <div id="twenty-btn-div">
+                <button id="previous-twenty-btn" value="-20">Click for the previous 20 Pokemon!</button> 
+                <button id="next-twenty-btn" value="20">Click for the next 20 Pokemon!</button>
+            </div>
+            <p id="messages"></p> 
+            <div id="pokemon-display"></div>    
+        </section>
+        
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>
