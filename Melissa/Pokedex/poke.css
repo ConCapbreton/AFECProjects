@@ -15,11 +15,16 @@ button {
     margin: 1rem auto 0 auto;
 }
 
+#error-p {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
 #search-div {
     margin: 1rem auto 0 auto;
     padding: 1rem;
     border: 1px solid black;
-    width: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,12 +32,14 @@ button {
     gap: 0.5rem;
 }
 
-#search-div>input {
+#pokemon-search {
     min-width: 330px;
 }
 
 #error-search {
     display: none;
+    width: 330px;
+    text-align: center;
 }
 
 #twenty-btn-div>button {
@@ -159,7 +166,6 @@ td, th {
     width: 100%;
     text-align: center;
 }
-
 
 #alpha-div>button, #all-favorites-btn {
     display: block;

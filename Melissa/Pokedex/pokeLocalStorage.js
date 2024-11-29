@@ -15,6 +15,62 @@ nextTwentyBtn.addEventListener("click", changeTwenty)
 prevTwentyBtn.addEventListener("click", changeTwenty)
 loadBtn.addEventListener("click", getPokemon)
 
+// DISPLAY FUNCTION
+
+function displayDry(id, name, image, statsHp, statsAttack, statsDefense, statsSpecialAttack, statsSpecialDefense, statsSpeed, types) {
+    
+    let typeArray = [] 
+    types.forEach(element => typeArray.push(element.name))
+    let type = typeArray.join(' ')
+    
+    pokemonDisplay.innerHTML += `
+            <div class="pokemon">
+                <div class="star-div">
+                    <svg id="${id}empty-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16" style="display:block;">
+                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
+                    </svg>
+                    <svg id="${id}full-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" style="display:none;">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                </div>
+                <h3>${id}. ${name}</h3>
+                <img class="pokemon-img" src=${image} alt="${name} picture" id="${id}" width="230" height="230">
+                <table class="stat-table" id="${id}table">                
+                    <caption>Stats:</caption>
+                    <tr>
+                        <th>Type:</th>
+                        <td>${type}</td>
+                    </tr>
+                    <tr>
+                        <th>HP:</th>
+                        <td>${statsHp}</td>
+                    </tr>
+                    <tr>
+                        <th>Attack:</th>
+                        <td>${statsAttack}</td>
+                    </tr>
+                    <tr>
+                        <th>Defense:</th>
+                        <td>${statsDefense}</td>
+                    </tr>
+                    <tr>
+                        <th>Special Attack:</th>
+                        <td>${statsSpecialAttack}</td>
+                    </tr>
+                    <tr>
+                        <th>Special Defense:</th>
+                        <td>${statsSpecialDefense}</td>
+                    </tr>
+                    <tr>
+                        <th>Speed:</th>
+                        <td>${statsSpeed}</td>
+                    </tr>
+                </table>
+                <button class="add-to-favorites" value="${id}">Favorites</button>
+            </div>
+        `
+}
+
 //SEARCH BUTTON
 searchBtn.addEventListener("click", (event) => {
     event.preventDefault()
@@ -38,53 +94,7 @@ searchBtn.addEventListener("click", (event) => {
 
     if (searchResult) {
         let type = searchResult.apiTypes.length === 1 ? `${searchResult.apiTypes[0].name}` : `${searchResult.apiTypes[0].name} et ${searchResult.apiTypes[1].name}`
-
-        pokemonDisplay.innerHTML = `
-            <div class="pokemon">
-                <div class="star-div">
-                    <svg id="${searchResult.id}empty-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16" style="display:block;">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    <svg id="${searchResult.id}full-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" style="display:none;">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                    </svg>
-                </div>
-                <h3>${searchResult.id}. ${searchResult.name}</h3>
-                <img class="pokemon-img" src=${searchResult.image} alt="${searchResult.name} picture" width="230" height="230">
-                <table id="${searchResult.id}table">
-                    <caption>Stats:</caption>
-                    <tr>
-                        <th>Type:</th>
-                        <td>${type}</td>
-                    </tr>
-                    <tr>
-                        <th>HP:</th>
-                        <td>${searchResult.stats.HP}</td>
-                    </tr>
-                    <tr>
-                        <th>Attack:</th>
-                        <td>${searchResult.stats.attack}</td>
-                    </tr>
-                    <tr>
-                        <th>Defense:</th>
-                        <td>${searchResult.stats.defense}</td>
-                    </tr>
-                    <tr>
-                        <th>Special Attack:</th>
-                        <td>${searchResult.stats.special_attack}</td>
-                    </tr>
-                    <tr>
-                        <th>Special Defense:</th>
-                        <td>${searchResult.stats.special_defense}</td>
-                    </tr>
-                    <tr>
-                        <th>Speed:</th>
-                        <td>${searchResult.stats.speed}</td>
-                    </tr>
-                </table>
-                <button class="add-to-favorites" value="${searchResult.id}">Favorites</button>
-            </div>
-        `
+        displayDry(searchResult.id, searchResult.name, searchResult.image, searchResult.stats.HP, searchResult.stats.attack, searchResult.stats.defense, searchResult.stats.special_attack, searchResult.stats.special_defense, searchResult.stats.speed)    
     } else {
         searchErrorText.style.display = "contents"
         searchErrorText.textContent = "We didnt find that Pokemon I'm afraid. Try you search again."
@@ -181,69 +191,27 @@ async function getPokemon(event) {
     let iEnd = localPokemon.length < pokeEndCount ? localPokemon.length : pokeEndCount
     for (let i = pokeStartCount; i < iEnd; i++) {
         
-        let type = localPokemon[i].apiTypes.length === 1 ? `${localPokemon[i].apiTypes[0].name}` : `${localPokemon[i].apiTypes[0].name} et ${localPokemon[i].apiTypes[1].name}`
-
-        pokemonDisplay.innerHTML += `
-            <div class="pokemon">
-                <div class="star-div">
-                    <svg id="${localPokemon[i].id}empty-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16" style="display:block;">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    <svg id="${localPokemon[i].id}full-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" style="display:none">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                    </svg>
-                </div>
-                <h3>${localPokemon[i].id}. ${localPokemon[i].name}</h3>
-                <img class="pokemon-img" src=${localPokemon[i].image} alt="${localPokemon[i].name} picture" id="${localPokemon[i].id}" width="230" height="230">
-                <table class="stat-table" id="${localPokemon[i].id}table">
-                    <caption>Stats:</caption>
-                    <tr>
-                        <th>Type:</th>
-                        <td>${type}</td>
-                    </tr>
-                    <tr>
-                        <th>HP:</th>
-                        <td>${localPokemon[i].stats.HP}</td>
-                    </tr>
-                    <tr>
-                        <th>Attack:</th>
-                        <td>${localPokemon[i].stats.attack}</td>
-                    </tr>
-                    <tr>
-                        <th>Defense:</th>
-                        <td>${localPokemon[i].stats.defense}</td>
-                    </tr>
-                    <tr>
-                        <th>Special Attack:</th>
-                        <td>${localPokemon[i].stats.special_attack}</td>
-                    </tr>
-                    <tr>
-                        <th>Special Defense:</th>
-                        <td>${localPokemon[i].stats.special_defense}</td>
-                    </tr>
-                    <tr>
-                        <th>Speed:</th>
-                        <td>${localPokemon[i].stats.speed}</td>
-                    </tr>
-                </table>
-                <button class="add-to-favorites" value="${localPokemon[i].id}">Favorites</button>
-            </div>
-        `
+        displayDry(localPokemon[i].id, localPokemon[i].name, localPokemon[i].image, localPokemon[i].stats.HP, localPokemon[i].stats.attack, localPokemon[i].stats.defense, localPokemon[i].stats.special_attack, localPokemon[i].stats.special_defense, localPokemon[i].stats.speed, localPokemon[i].apiTypes)
+    }
     
-        if (localStorage.getItem("favoritePokemon") ==  null) {
-            return
-        } else {
-            //find out if a favorite pokemon is on the page
-            let favoritePokemonJSON = localStorage.getItem("favoritePokemon")
-            let favoritePokemon = JSON.parse(favoritePokemonJSON)
-            let pokemonIsOnPage = favoritePokemon.filter(element => document.getElementById(element.toString()))
-            pokemonIsOnPage.forEach(element => {
-                let fullStar = document.getElementById(`${element}full-star`)
-                let emptyStar = document.getElementById(`${element}empty-star`)
-                emptyStar.style.display = "none"   
-                fullStar.style.display = "block"
-            })
-        }
+    favoriteStar()
+    
+}
+
+function favoriteStar () {
+    if (localStorage.getItem("favoritePokemon") ==  null) {
+        return
+    } else {
+        //find out if a favorite pokemon is on the page
+        let favoritePokemonJSON = localStorage.getItem("favoritePokemon")
+        let favoritePokemon = JSON.parse(favoritePokemonJSON)
+        let pokemonIsOnPage = favoritePokemon.filter(element => document.getElementById(element.toString()))
+        pokemonIsOnPage.forEach(element => {
+            let fullStar = document.getElementById(`${element}full-star`)
+            let emptyStar = document.getElementById(`${element}empty-star`)
+            emptyStar.style.display = "none"   
+            fullStar.style.display = "block"
+        })
     }
 }
 
@@ -317,56 +285,12 @@ allFavoritesBtn.addEventListener("click", (event) => {
     let pokemonToDisplay = localPokemon.filter(element => favoritePokemon.includes(element.id))
     
     pokemonToDisplay.forEach(element => {
-        
-        let type = element.apiTypes.length === 1 ? `${element.apiTypes[0].name}` : `${element.apiTypes[0].name} et ${element.apiTypes[1].name}`
 
-        pokemonDisplay.innerHTML += `
-            <div class="pokemon">
-                <div class="star-div">
-                    <svg id="${element.id}empty-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16" style="display:none;">
-                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-                    </svg>
-                    <svg id="${element.id}full-star" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" style="display:block">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                    </svg>
-                </div>
-                <h3>${element.id}. ${element.name}</h3>
-                <img class="pokemon-img" src=${element.image} alt="${element.name} picture" id="${element.id}" width="230" height="230">
-                <table class="stat-table" id="${element.id}table">
-                    <caption>Stats:</caption>
-                    <tr>
-                        <th>Type:</th>
-                        <td>${type}</td>
-                    </tr>
-                    <tr>
-                        <th>HP:</th>
-                        <td>${element.stats.HP}</td>
-                    </tr>
-                    <tr>
-                        <th>Attack:</th>
-                        <td>${element.stats.attack}</td>
-                    </tr>
-                    <tr>
-                        <th>Defense:</th>
-                        <td>${element.stats.defense}</td>
-                    </tr>
-                    <tr>
-                        <th>Special Attack:</th>
-                        <td>${element.stats.special_attack}</td>
-                    </tr>
-                    <tr>
-                        <th>Special Defense:</th>
-                        <td>${element.stats.special_defense}</td>
-                    </tr>
-                    <tr>
-                        <th>Speed:</th>
-                        <td>${element.stats.speed}</td>
-                    </tr>
-                </table>
-                <button class="add-to-favorites" value="${element.id}">Favorites</button>
-            </div>
-        `
+        displayDry(element.id, element.name, element.image, element.stats.HP, element.stats.attack, element.stats.defense, element.stats.special_attack, element.stats.special_defense, element.stats.speed, element.apiTypes)
+
     })
+
+    favoriteStar()
 })
 
 //Alphabetise your pokemon: 
@@ -404,10 +328,3 @@ alphaBtn.addEventListener("click", (event) => {
         getPokemon(event)
     }
 })
-
-//Sort by types:
-
-//radio buttons to select types
-//querySelectorAll and see which buttons are checked
-//sort pokemon depending on type
-//adjust the 

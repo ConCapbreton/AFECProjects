@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./poke.css">
-    <script src="./poke.js" defer></script>
+    <script src="./pokeFetch.js" defer></script>
     <title>Pokedex! Gotta Catch 'em all!</title>
 </head>
 <body>
     <header>
         <h1>Pokedex! Gotta Catch 'em all!</h1>
-        <button id="load-btn">Click to load some pokemon!</button>
         <p id="error-p"></p>
         <nav id="poke-nav">    
             <h2>Navigation</h2>
@@ -20,13 +19,13 @@
                     <p id="favorites-warning"></p>
                 </div>
                 <div id="search-div">      
-                    <label for="pokemon-search">Pokemon search: </label>
+                    <label for="pokemon-search">Pokemon search:</label>
                     <p id="error-search"></p>
                     <input type="text" id="pokemon-search" placeholder="Enter the exact name of your pokemon before you click">
                     <button id="pokesearch-btn">Search your pokemon</button>
                 </div>
                 <div id="alpha-div">
-                    <button id="alpha-btn">Alphabetise your Pokemon</button>
+                    <button id="alpha-btn">Display all Pokemon</button>
                     <p id="alpha-warning"></p>
                 </div>
             </div>
@@ -40,9 +39,8 @@
                 <button id="next-twenty-btn" value="20">Click for the next 20 Pokemon!</button>
             </div>
             <p id="messages"></p> 
-            <div id="pokemon-display"></div>    
+            <div id="pokemon-display"></div>   
         </section>
-        
     </main>
     <footer>
         
