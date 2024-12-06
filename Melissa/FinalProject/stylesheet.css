@@ -157,11 +157,12 @@ hr {
     border-radius: 10px;
 }
 
-.new-entry-div {
-    width: 95%;
+#new-entry-div {
+    width: 300px;
     margin: 5px auto 0 auto;
     display: grid;
-    grid-template-columns: 1fr, 1fr;
+    grid-template-columns: 105px 190px;
+    /* grid-template-columns: 1fr, 1fr; */
     gap: 3px;
 }
 
@@ -339,7 +340,7 @@ hr {
     #file-input {
         width: 50%;
     }
-    .new-entry-div {
+    #new-entry-div {
         margin-top: 7px;
         gap: 7px;
     }

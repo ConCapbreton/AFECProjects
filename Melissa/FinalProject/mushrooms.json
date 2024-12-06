@@ -1,0 +1,60 @@
+{
+    "mushrooms": [
+        {
+            "id": 1,
+            "file": "Picture of mushroom 1",
+            "name": "Cepe de Bordeaux",
+            "species": "Boletus edulis Bull",
+            "latitude": "43°37'32.6\"",
+            "longitude": "1°26'53.5\"",
+            "date": "9th Sept 2024",
+            "time": "16:34",
+            "comment": "Found after rain by an oak.."
+        },
+        {
+            "id": 2,
+            "file": "Picture of mushroom 2",
+            "name": "Girolle",
+            "species": "Cantharellus cibarius",
+            "latitude": "43°37'32.6\"",
+            "longitude": "1°26'53.5\"",
+            "date": "9th Sept 2024",
+            "time": "16:34",
+            "comment": "Found after rain by an oak.."
+        },
+        {
+            "id": 3,
+            "file": "Picture of mushroom 3",
+            "name": "Chanterelle en tube",
+            "species": "Craterellus tubaeformis",
+            "latitude": "43°37'32.6\"",
+            "longitude": "1°26'53.5\"",
+            "date": "9th Sept 2024",
+            "time": "16:34",
+            "comment": "Found after rain by an oak.."
+        },
+        {
+            "id": 4,
+            "file": "Picture of mushroom 4",
+            "name": "Pied-de-mouton",
+            "species": "Hydnum repandum",
+            "latitude": "43°37'32.6\"",
+            "longitude": "1°26'53.5\"",
+            "date": "9th Sept 2024",
+            "time": "16:34",
+            "comment": "Found after rain by an oak.."
+        },
+        {
+            "id": 5,
+            "file": "Picture of mushroom 5",
+            "name": "Pied-de-mouton roussissant",
+            "species": "Hydnum Rufescens",
+            "latitude": "43°37'32.6\"",
+            "longitude": "1°26'53.5\"",
+            "date": "9th Sept 2024",
+            "time": "16:34",
+            "comment": "Found after rain by an oak.."
+        }
+        
+    ]
+}

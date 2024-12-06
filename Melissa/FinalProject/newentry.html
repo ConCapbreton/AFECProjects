@@ -10,6 +10,7 @@
     </style>
     <link rel="icon" href="./images/FORAGERBROWSERICON.webp" type="image/webp">
     <link rel="stylesheet" href="./stylesheet.css">
+    <script src="newEntry.js" defer ></script>
     <title>New Entry</title>
 </head>
 <body>
@@ -21,20 +22,21 @@
             <div class="ham-line"></div>
         </div>
         <nav>
-            <button class="nav-btn">New Entry</button>
-            <button class="nav-btn">Foraged</button>
-            <button class="nav-btn">Map</button>
+            <button class="nav-btn"><a href="./newentry.html">New Entry</a></button>
+            <button class="nav-btn"><a href="./foraged.html">Foraged</a></button>
+            <button class="nav-btn"><a href="./map.html">Map</a></button>
             <button class="nav-btn">Contact</button>
         </nav>
     </header>
     <main>
         <div class="main-div">
             <h1>New Entry</h1>
-            <form class="new-entry-form">
+            <form class="new-entry-form" method="post" enctype="multipart/form-data">
                 <div class="image-div">
                     <svg id="svg-pic" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-fill" viewBox="0 0 16 16">
                         <path d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062zm5-6.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
                     </svg>
+                    <!-- <img src="" alt="Uploaded picture" id="newentry-image"> THIS IMG ELEMENT WILL BE NEEDED ONCE THE BACKEND IS IN PLACE AND FILES CAN BE UPLOADED-->
                     <input id="file-input" type="file" name="file-input" accept=".jpg, .jpeg, .png">
                     <label id="new-entry-icon-text" for="file-input">Click to upload a photo</label>
                 </div>
@@ -46,12 +48,14 @@
                         <option>Scientific name</option>
                         <option>Boletus edulis Bull</option>
                         <option>Cantharellus cibarius</option>
+                        <option>Craterellus tubaeformis</option>
                         <option>Hydnum repandum</option>
+                        <option>Hydnum rufescens</option>
                     </select>
                     <label class="column-one" for="latitude">Latitude:</label>
                     <input class="column-two" type="number" id="latitude" name="latitude" placeholder="Latitude">
-                    <label class="column-one" for="Longitude">Longitude:</label>
-                    <input class="column-two" type="number" id="Longitude" name="Longitude" placeholder="Longitude">
+                    <label class="column-one" for="longitude">Longitude:</label>
+                    <input class="column-two" type="number" id="longitude" name="Longitude" placeholder="Longitude">
                     <label class="column-one" for="date">Date:</label>
                     <input class="column-two" type="date" id="date" name="date" required>
                     <label class="column-one" for="time">Time:</label>
@@ -60,7 +64,8 @@
                     <textarea class="column-two" id="text-area" name="text-area"></textarea>
                 </div>
             </form>
-            <button class="save-btn" type="submit">Save</button>
+            <!-- THIS NEEDS TO BE AN INPUT TYPE SUBMIT -->
+            <button class="save-btn" type="submit" id="newentry-save-btn">Save</button>
         </div>
     </main>
     <footer>
