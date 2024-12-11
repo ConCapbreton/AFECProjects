@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Record, map and analyse all of your mushroom, plants, trees and other foraging discoveries and finds">
     <link href="https://fonts.cdnfonts.com/css/lucida-handwriting-std" rel="stylesheet">
-    <style>
-        @import url('https://fonts.cdnfonts.com/css/lucida-handwriting-std');
-    </style>
     <link rel="icon" href="./images/FORAGERBROWSERICON.webp" type="image/webp">
     <link rel="stylesheet" href="./stylesheet.css">
+    <script src="./foraged.js" defer></script>
     <title>Foraged</title>
 </head>
 <body>
@@ -26,162 +24,24 @@
             <button class="nav-btn"><a href="./map.html">Map</a></button>
             <button class="nav-btn">Contact</button>
         </nav>
+        <div id="hamburger-nav-div"></div>
     </header>
     <main>
         <div class="main-div">
             <h1>Review your finds here</h1>
-            <button class="filter-btn">Filters</button>
-            <div class="filter-div">
+            <p class="messages" id="foraged-message"></p>
+            <button id="filter-btn">Filters</button>
+            <div id="filter-div">
                 <label for="name-or-species">Name or Species:</label>
-                <input type="text" id="name-or-species" name="name-or-species" placeholder="Name or Species">
+                <input type="text" id="name-or-species" name="name-or-species" placeholder="Name or Species" oninput="searchFunction()">
                 <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date" name="start-date">
+                <input type="date" id="start-date" name="start-date" oninput="searchFunction()">
                 <label for="end-date">End Date:</label>
-                <input type="date" id="end-date" name="end-date">
+                <input type="date" id="end-date" name="end-date" oninput="searchFunction()">
             </div>
             <hr id="filter-hr">
-            <div class="foraged-div">
-                <img class="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300" height="150"> 
-                <div class="new-entry-div">
-                    <p class="column-one">Name:</p>
-                    <p class="column-two">Cepe de Bordeaux</p>
-                    <p class="column-one">Species:</p>
-                    <p class="column-two">Boletus edulis Bull</p>
-                    <p class="column-one">Latitude:</p>
-                    <p class="column-two">43°37'32.6"</p>
-                    <p class="column-one">Longitude:</p>
-                    <p class="column-two">1°26'53.5"</p>
-                    <p class="column-one">Date:</p>
-                    <p class="column-two">9th Sept 2024</p>
-                    <p class="column-one" >Time:</p>
-                    <p class="column-two">16:34</p>
-                    <p class="column-one">Comments:</p>
-                    <p class="column-two">Found after rain by an oak.</p>
-                </div>
-                <div class="foraged-btn-div">
-                    <button class="edit-btn">Edit</button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-            </div>
-            <!-- START LIST OF FINDS (TO BE DELETED FOR FINAL FORMATTING) -->
-            <div id="foraged-mushrooms">
-                <div class="foraged-div">
-                    <img class="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300" height="150"> 
-                    <div class="new-entry-div">
-                        <p class="column-one">Name:</p>
-                        <p class="column-two">Cepe de Bordeaux</p>
-                        <p class="column-one">Species:</p>
-                        <p class="column-two">Boletus edulis Bull</p>
-                        <p class="column-one">Latitude:</p>
-                        <p class="column-two">43°37'32.6"</p>
-                        <p class="column-one">Longitude:</p>
-                        <p class="column-two">1°26'53.5"</p>
-                        <p class="column-one">Date:</p>
-                        <p class="column-two">9th Sept 2024</p>
-                        <p class="column-one" >Time:</p>
-                        <p class="column-two">16:34</p>
-                        <p class="column-one">Comments:</p>
-                        <p class="column-two">Found after rain by an oak.</p>
-                    </div>
-                    <div class="foraged-btn-div">
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                </div>
-                <div class="foraged-div">
-                    <img class="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300" height="150"> 
-                    <div class="new-entry-div">
-                        <p class="column-one">Name:</p>
-                        <p class="column-two">Cepe de Bordeaux</p>
-                        <p class="column-one">Species:</p>
-                        <p class="column-two">Boletus edulis Bull</p>
-                        <p class="column-one">Latitude:</p>
-                        <p class="column-two">43°37'32.6"</p>
-                        <p class="column-one">Longitude:</p>
-                        <p class="column-two">1°26'53.5"</p>
-                        <p class="column-one">Date:</p>
-                        <p class="column-two">9th Sept 2024</p>
-                        <p class="column-one" >Time:</p>
-                        <p class="column-two">16:34</p>
-                        <p class="column-one">Comments:</p>
-                        <p class="column-two">Found after rain by an oak.</p>
-                    </div>
-                    <div class="foraged-btn-div">
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                </div>
-                <div class="foraged-div">
-                    <img class="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300" height="150"> 
-                    <div class="new-entry-div">
-                        <p class="column-one">Name:</p>
-                        <p class="column-two">Cepe de Bordeaux</p>
-                        <p class="column-one">Species:</p>
-                        <p class="column-two">Boletus edulis Bull</p>
-                        <p class="column-one">Latitude:</p>
-                        <p class="column-two">43°37'32.6"</p>
-                        <p class="column-one">Longitude:</p>
-                        <p class="column-two">1°26'53.5"</p>
-                        <p class="column-one">Date:</p>
-                        <p class="column-two">9th Sept 2024</p>
-                        <p class="column-one" >Time:</p>
-                        <p class="column-two">16:34</p>
-                        <p class="column-one">Comments:</p>
-                        <p class="column-two">Found after rain by an oak.</p>
-                    </div>
-                    <div class="foraged-btn-div">
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                </div>
-                <div class="foraged-div">
-                    <img class="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300" height="150"> 
-                    <div class="new-entry-div">
-                        <p class="column-one">Name:</p>
-                        <p class="column-two">Cepe de Bordeaux</p>
-                        <p class="column-one">Species:</p>
-                        <p class="column-two">Boletus edulis Bull</p>
-                        <p class="column-one">Latitude:</p>
-                        <p class="column-two">43°37'32.6"</p>
-                        <p class="column-one">Longitude:</p>
-                        <p class="column-two">1°26'53.5"</p>
-                        <p class="column-one">Date:</p>
-                        <p class="column-two">9th Sept 2024</p>
-                        <p class="column-one" >Time:</p>
-                        <p class="column-two">16:34</p>
-                        <p class="column-one">Comments:</p>
-                        <p class="column-two">Found after rain by an oak.</p>
-                    </div>
-                    <div class="foraged-btn-div">
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                </div>
-                <div class="foraged-div">
-                    <img class="mushroom-photo" src="./images/Mushroom.webp" alt="Uploaded image" width="300" height="150"> 
-                    <div class="new-entry-div">
-                        <p class="column-one">Name:</p>
-                        <p class="column-two">Cepe de Bordeaux</p>
-                        <p class="column-one">Species:</p>
-                        <p class="column-two">Boletus edulis Bull</p>
-                        <p class="column-one">Latitude:</p>
-                        <p class="column-two">43°37'32.6"</p>
-                        <p class="column-one">Longitude:</p>
-                        <p class="column-two">1°26'53.5"</p>
-                        <p class="column-one">Date:</p>
-                        <p class="column-two">9th Sept 2024</p>
-                        <p class="column-one" >Time:</p>
-                        <p class="column-two">16:34</p>
-                        <p class="column-one">Comments:</p>
-                        <p class="column-two">Found after rain by an oak.</p>
-                    </div>
-                    <div class="foraged-btn-div">
-                        <button class="edit-btn">Edit</button>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <!-- END LIST OF FINDS (TO BE DELETED FOR FINAL FORMATTING) -->
+            <div id="first-mushroom"></div>
+            <div id="foraged-mushrooms"></div>
         </div>
     </main>
     <footer>
